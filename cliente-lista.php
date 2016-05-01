@@ -4,21 +4,19 @@
             <a title="Ordenar" href="?order=<?php echo ($order=='ASC'?'DESC':'ASC'); ?>" > # </a>
         </th>
         <th>Nome</th>
-        <th>CPF</th>
-        <th>RG</th>
-        <th>Endereço</th>
+        <th>CPF/CNPJ</th>
+        <th>Tipo</th>
     </tr>
     <?php foreach($clientes as $k => $cliente ) : ?>
         <tr>
             <td><?php echo $k; ?></td>
             <td>
                 <a href="?pag=detalhe&idx=<?php echo $k; ?>">
-                <?php echo $cliente->nome; ?>
+                <?php echo $cliente->getNome(); ?>
                 </a>
             </td>
-            <td><?php echo $cliente->cpf; ?></td>
-            <td><?php echo $cliente->rg; ?></td>
-            <td><?php echo $cliente->endereco; ?></td>
+            <td><?php echo ($cliente instanceof ClientePJ ? $cliente->getCnpj(): $cliente->getCpf() ); ?></td>
+            <td><?php echo ($cliente instanceof ClientePJ ? "Pessoa Jurídica":"Pessoa Física"); ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
