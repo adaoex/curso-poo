@@ -1,5 +1,9 @@
 <?php
 
+namespace Poo\Cliente\Interfaces;
+
+use Poo\Endereco\Interfaces\IEndereco;
+
 interface ICliente
 {
     public function getGrauImportancia();

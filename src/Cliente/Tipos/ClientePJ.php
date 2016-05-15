@@ -1,5 +1,10 @@
 <?php
 
+namespace Poo\Cliente\Tipos;
+
+use Poo\Cliente\Interfaces\ICliente;
+use Poo\Endereco\Interfaces\IEndereco;
+
 class ClientePJ implements ICliente
 {
     private $nome;
@@ -9,7 +14,7 @@ class ClientePJ implements ICliente
 
     public function __construct()
     {
-        $this->enderecos = new ArrayObject();
+        $this->enderecos = new \ArrayObject();
     }
 
     /**

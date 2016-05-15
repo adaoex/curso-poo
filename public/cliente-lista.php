@@ -15,8 +15,8 @@
                 <?php echo $cliente->getNome(); ?>
                 </a>
             </td>
-            <td><?php echo ($cliente instanceof ClientePJ ? $cliente->getCnpj(): $cliente->getCpf() ); ?></td>
-            <td><?php echo ($cliente instanceof ClientePJ ? "Pessoa Jurídica":"Pessoa Física"); ?></td>
+            <td><?php echo ($cliente instanceof Poo\Cliente\Tipos\ClientePJ ? $cliente->getCnpj(): $cliente->getCpf() ); ?></td>
+            <td><?php echo ($cliente instanceof Poo\Cliente\Tipos\ClientePJ ? "Pessoa Jurídica":"Pessoa Física"); ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

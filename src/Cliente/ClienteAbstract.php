@@ -1,6 +1,8 @@
 <?php
 
-abstract class Cliente
+namespace Poo\Cliente;
+
+abstract class ClienteAbstract
 {
     protected $nome;
     protected $endereco;

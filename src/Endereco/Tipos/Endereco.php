@@ -1,4 +1,7 @@
 <?php
+namespace Poo\Endereco\Tipos;
+
+use Poo\Endereco\Interfaces\IEndereco;
 
 class Endereco implements IEndereco
 {
