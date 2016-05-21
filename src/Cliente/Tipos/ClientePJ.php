@@ -7,6 +7,7 @@ use Poo\Endereco\Interfaces\IEndereco;
 
 class ClientePJ implements ICliente
 {
+    private $id;
     private $nome;
     private $cnpj;
     private $grau;
@@ -15,6 +16,24 @@ class ClientePJ implements ICliente
     public function __construct()
     {
         $this->enderecos = new \ArrayObject();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return ClientePJ
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**

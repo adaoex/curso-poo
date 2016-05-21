@@ -3,11 +3,20 @@ if ( ! key_exists('idx', $_GET) ){
     echo 'Indice inválido';
 }
 $idx = $_GET['idx'];
+$tipo = $_GET['tipo'];
 
-if ( ! key_exists($idx, $clientes) ){
-    echo "Cliente inválido";
+$db = new \PDO('sqlite:cursopoo.db');
+
+if ($tipo == 'pf'){
+    $pfDB = new Poo\PDO\ClientePF($db);
+    $cliente = $pfDB->find($idx);
+}elseif ($tipo == 'pj'){
+    $pjDB = new Poo\PDO\ClientePJ($db);
+    $cliente = $pjDB->find($idx);
 }
-$cliente =  $clientes[$idx];
+
+$endDB = new \Poo\PDO\Endereco($db);
+
 ?>
 
 <a href="index.php" >
@@ -21,7 +30,7 @@ $cliente =  $clientes[$idx];
     <div class="col-md-2">Nome:</div>
     <div class="col-md-4"><?php echo $cliente->getNome(); ?></div>
 </div>
-<?php if ( $cliente instanceof ClientePF ) : ?>
+<?php if ( $cliente instanceof \Poo\Cliente\Tipos\ClientePF ) : ?>
 <div class="row">
     <div class="col-md-2">CPF:</div>
     <div class="col-md-4"><?php echo $cliente->getCpf(); ?></div>
@@ -31,15 +40,15 @@ $cliente =  $clientes[$idx];
     <div class="col-md-4"><?php echo $cliente->getRg(); ?></div>
 </div>
 <?php endif; ?>
-<?php if ( $cliente instanceof ClientePJ) : ?>
+<?php if ( $cliente instanceof \Poo\Cliente\Tipos\ClientePJ) : ?>
     <div class="row">
-        <div class="col-md-2">CPF:</div>
+        <div class="col-md-2">CNPJ:</div>
         <div class="col-md-4"><?php echo $cliente->getCnpj(); ?></div>
     </div>
 <?php endif; ?>
 
 <div class="row">
-    <?php foreach ($cliente->getEnderecos() as $k => $endereco ) : ?>
+    <?php foreach ( $endDB->findByCliente($cliente->getId()) as $k => $endereco ) : ?>
     <div class="col-md-2">Endereço <?php echo $k; ?> :</div>
     <div class="col-md-4">
         <?php echo $endereco->getLogradouro(); ?>,

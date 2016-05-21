@@ -1,7 +1,16 @@
 <?php
 
+$db = new \PDO('sqlite:cursopoo.db');
 
-$cliente1 = new Poo\Cliente\Tipos\ClientePF();
+$pfDB = new Poo\PDO\ClientePF($db);
+$pjDB = new Poo\PDO\ClientePJ($db);
+
+$clientes_pf = $pfDB->findAll();
+$clientes_pj = $pjDB->findAll();
+
+$clientes = array_merge($clientes_pf, $clientes_pj);
+
+/*$cliente1 = new Poo\Cliente\Tipos\ClientePF();
 $endereco1 = new Poo\Endereco\Tipos\Endereco();
 $endereco1->setLogradouro("Log 1")->setBairro("Bairo 1")->setCidade("Cid 1")->setCep(70)->setUf("DF");
 $cliente1->setCpf(11)->setNome("João")->setRg(1)->addEndereco($endereco1)->setGrauImportancia(2);
@@ -67,4 +76,4 @@ $cliente10->setCpf(15)->setNome("João")->setRg(1)->addEndereco($endereco10)->se
 $clientes = [
     $cliente1,$cliente2,$cliente3,$cliente4,$cliente5,
     $cliente6,$cliente7,$cliente8,$cliente9,$cliente10,
-];
+];*/

@@ -9,9 +9,9 @@
     </tr>
     <?php foreach($clientes as $k => $cliente ) : ?>
         <tr>
-            <td><?php echo $k; ?></td>
+            <td><?php echo $cliente->getId(); ?></td>
             <td>
-                <a href="?pag=detalhe&idx=<?php echo $k; ?>">
+                <a href="?pag=detalhe&idx=<?php echo $cliente->getId(); ?>&tipo=<?php echo ($cliente instanceof Poo\Cliente\Tipos\ClientePJ ? 'pj': 'pf')?>">
                 <?php echo $cliente->getNome(); ?>
                 </a>
             </td>

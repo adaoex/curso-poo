@@ -1,16 +1,40 @@
 <?php
+
 namespace Poo\Endereco\Tipos;
 
+use Poo\Cliente\Interfaces\ICliente;
 use Poo\Endereco\Interfaces\IEndereco;
 
 class Endereco implements IEndereco
 {
 
+    private $id;
     private $logradouro;
     private $bairro;
     private $cidade;
     private $uf;
     private $cep;
+    private $cliente;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     * @return Endereco
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    
 
     public function getTipoEndereco()
     {
@@ -107,5 +131,22 @@ class Endereco implements IEndereco
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * @param mixed $cliente
+     * @return Endereco
+     */
+    public function setCliente(ICliente $cliente)
+    {
+        $this->cliente = $cliente;
+        return $this;
+    }
 
 }
