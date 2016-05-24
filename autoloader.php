@@ -1,6 +1,6 @@
 <?php
 
-define ('APP_PATH', '../');
+define ('APP_PATH', __DIR__ . '/');
 
 include APP_PATH . 'lib/Psr4AutoloaderClass.php';
 

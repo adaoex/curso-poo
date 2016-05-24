@@ -1,8 +1,8 @@
 <?php
 
-include '../autoloader.php';
+include __DIR__ . '/../autoloader.php';
 
-include 'clientes.php';
+include __DIR__ . '/clientes.php';
 
 $order = key_exists('order', $_GET)? $_GET['order'] : 'ASC';
 

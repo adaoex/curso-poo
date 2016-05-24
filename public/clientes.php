@@ -1,6 +1,6 @@
 <?php
 
-$db = new \PDO('sqlite:cursopoo.db');
+$db = new \PDO('sqlite:../cursopoo.db');
 
 $pfDB = new Poo\PDO\ClientePF($db);
 $pjDB = new Poo\PDO\ClientePJ($db);
