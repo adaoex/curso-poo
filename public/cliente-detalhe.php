@@ -5,7 +5,7 @@ if ( ! key_exists('idx', $_GET) ){
 $idx = $_GET['idx'];
 $tipo = $_GET['tipo'];
 
-$db = new \PDO('sqlite:cursopoo.db');
+$db = new \PDO("sqlite:".__DIR__."/../cursopoo.db");
 
 if ($tipo == 'pf'){
     $pfDB = new Poo\PDO\ClientePF($db);
